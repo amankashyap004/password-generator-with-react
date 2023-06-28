@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Btn from "../components/Btn";
 import Checkbox from "../components/Checkbox";
+import PasswordStrengthIndicator from "../components/PasswordStrengthIndicator";
 
 const Home = () => {
    const [length, setLength] = useState(4);
@@ -50,6 +51,12 @@ const Home = () => {
                   />
                );
             })}
+         </section>
+         <section className="flex justify-between items-center flex-col my-2 w-full">
+            <div className="flex justify-between items-center w-full my-2">
+               <span>Strength</span>
+               <PasswordStrengthIndicator password="password" />
+            </div>
          </section>
       </main>
    );
