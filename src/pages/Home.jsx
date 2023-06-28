@@ -16,13 +16,13 @@ const Home = () => {
    };
 
    const [length, setLength] = useState(4);
+
    const [checkboxData, setCheckboxData] = useState([
       { title: "Include Uppercase Letters", state: false },
       { title: "Include Lowercase Letters", state: false },
       { title: "Include Numbers", state: false },
       { title: "Include Symbols", state: false },
    ]);
-
    const handleCheckboxChange = (i) => {
       const updatedCheckboxData = [...checkboxData];
       updatedCheckboxData[i].state = !updatedCheckboxData[i].state;
@@ -35,10 +35,9 @@ const Home = () => {
       <main className="flex justify-center items-center flex-col text-white text-xl font-extrabold py-6 px-12 rounded-lg bg-slate-700 w-[45%]">
          <section className="flex justify-between items-center w-full my-2">
             <span>{password}</span>
-            <div onClick={handleCopy}>
-               <Btn value={copied ? "Copied" : "copy"} />
-            </div>
+            <Btn value={copied ? "Copied" : "Copy"} onClick={handleCopy} />
          </section>
+
          <section className="flex justify-between items-center flex-col my-2 w-full">
             <div className="flex justify-between items-center w-full my-2">
                <span>Character Length</span>
@@ -55,6 +54,7 @@ const Home = () => {
                />
             </div>
          </section>
+
          <section className="grid grid-cols-2 my-2 w-full">
             {checkboxData.map((checkbox, index) => {
                return (
@@ -67,17 +67,20 @@ const Home = () => {
                );
             })}
          </section>
+
          <section className="flex justify-between items-center flex-col my-2 w-full">
             <div className="flex justify-between items-center w-full my-2">
                <span>Strength:</span>
                <PasswordStrengthIndicator password={password} />
             </div>
          </section>
+
          <section className="relative my-2 w-full flex justify-center items-center">
             {errorMessage && <div className="text-red-500 absolute">{errorMessage}</div>}
          </section>
-         <section className="mb-2 mt-6" onClick={() => generatePassword(checkboxData, length)}>
-            <Btn value="Generate Password" />
+
+         <section className="mb-2 mt-6">
+            <Btn value="Generate Password" onClick={() => generatePassword(checkboxData, length)} />
          </section>
       </main>
    );
