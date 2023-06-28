@@ -32,9 +32,9 @@ const Home = () => {
    const { password, errorMessage, generatePassword } = usePasswordGenerator();
 
    return (
-      <main className="flex justify-center items-center flex-col text-white text-xl font-extrabold py-6 px-12 rounded-lg bg-slate-700 w-[45%]">
+      <main className="flex justify-center items-center flex-col text-white text-xl font-extrabold py-6 px-12 rounded-lg bg-slate-700 w-[45%] sm:w-[98%] sm:p-4 sm:m-0 md:w-[75%] md:p-6">
          <section className="flex justify-between items-center w-full my-2">
-            <span>{password}</span>
+            <span className="sm:text-base">{password}</span>
             <Btn value={copied ? "Copied" : "Copy"} onClick={handleCopy} />
          </section>
 
@@ -55,7 +55,7 @@ const Home = () => {
             </div>
          </section>
 
-         <section className="grid grid-cols-2 my-2 w-full">
+         <section className="grid grid-cols-2 my-2 w-full sm:grid-cols-1">
             {checkboxData.map((checkbox, index) => {
                return (
                   <Checkbox
@@ -79,7 +79,7 @@ const Home = () => {
             {errorMessage && <div className="text-red-500 absolute">{errorMessage}</div>}
          </section>
 
-         <section className="mb-2 mt-6">
+         <section className="mb-2 mt-6 sm:mt-4">
             <Btn value="Generate Password" onClick={() => generatePassword(checkboxData, length)} />
          </section>
       </main>
