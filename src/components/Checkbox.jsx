@@ -1,8 +1,13 @@
 const Checkbox = ({ title, state, onChange }) => {
    return (
-      <div>
-         <input type="checkbox" onChange={onChange} checked={state} />
-         <label>{title}</label>
+      <div className="flex justify-start items-center">
+         <input
+            type="checkbox"
+            className="w-4 h-4 cursor-pointer sm:w-[14px] sm:h-[14px]"
+            onChange={onChange}
+            checked={state}
+         />
+         <label className="ml-2 sm:ml-1 sm:text-lg">{title}</label>
       </div>
    );
 };
