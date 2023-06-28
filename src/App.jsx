@@ -1,10 +1,11 @@
 import React from "react";
+import Home from "./pages/Home";
 import "./App.css";
 
 function App() {
    return (
-      <main>
-         <h1 className="text-3xl font-bold text-red-500">Hello world!</h1>
+      <main className="flex justify-center items-center mt-12 w-full">
+         <Home />
       </main>
    );
 }
