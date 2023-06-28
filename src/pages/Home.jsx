@@ -5,6 +5,16 @@ import PasswordStrengthIndicator from "../components/PasswordStrengthIndicator";
 import usePasswordGenerator from "../hooks/usePasswordGenerator";
 
 const Home = () => {
+   const [copied, setCopied] = useState(false);
+   const handleCopy = () => {
+      navigator.clipboard.writeText(password);
+      setCopied(true);
+
+      setTimeout(() => {
+         setCopied(false);
+      }, 1000);
+   };
+
    const [length, setLength] = useState(4);
    const [checkboxData, setCheckboxData] = useState([
       { title: "Include Uppercase Letters", state: false },
@@ -24,8 +34,10 @@ const Home = () => {
    return (
       <main className="flex justify-center items-center flex-col text-white text-xl font-extrabold py-6 px-12 rounded-lg bg-slate-700 w-[45%]">
          <section className="flex justify-between items-center w-full my-2">
-            <h1>{password}</h1>
-            <Btn value="copy" />
+            <span>{password}</span>
+            <div onClick={handleCopy}>
+               <Btn value={copied ? "Copied" : "copy"} />
+            </div>
          </section>
          <section className="flex justify-between items-center flex-col my-2 w-full">
             <div className="flex justify-between items-center w-full my-2">
