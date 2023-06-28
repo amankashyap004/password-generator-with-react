@@ -32,7 +32,7 @@ const Home = () => {
    const { password, errorMessage, generatePassword } = usePasswordGenerator();
 
    return (
-      <main className="flex justify-center items-center flex-col text-white text-xl font-extrabold py-6 px-12 rounded-lg bg-slate-700 w-[45%] sm:w-[98%] sm:p-4 sm:m-0 md:w-[75%] md:p-6">
+      <main className="flex justify-center items-center flex-col text-white text-xl font-extrabold py-6 px-12 rounded-lg bg-slate-700 w-[45%] sm:w-[98%] sm:p-4 md:w-[75%] md:p-6">
          <section className="flex justify-between items-center w-full my-2">
             <span className="sm:text-base">{password}</span>
             <Btn value={copied ? "Copied" : "Copy"} onClick={handleCopy} />
