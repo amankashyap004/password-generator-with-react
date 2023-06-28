@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Btn from "../components/Btn";
 import Checkbox from "../components/Checkbox";
 import PasswordStrengthIndicator from "../components/PasswordStrengthIndicator";
+import usePasswordGenerator from "../hooks/usePasswordGenerator";
 
 const Home = () => {
    const [length, setLength] = useState(4);
@@ -18,10 +19,12 @@ const Home = () => {
       setCheckboxData(updatedCheckboxData);
    };
 
+   const { password, errorMessage, generatePassword } = usePasswordGenerator();
+
    return (
       <main className="flex justify-center items-center flex-col text-white text-xl font-extrabold py-6 px-12 rounded-lg bg-slate-700 w-[45%]">
          <section className="flex justify-between items-center w-full my-2">
-            <h1>password</h1>
+            <h1>{password}</h1>
             <Btn value="copy" />
          </section>
          <section className="flex justify-between items-center flex-col my-2 w-full">
@@ -55,10 +58,10 @@ const Home = () => {
          <section className="flex justify-between items-center flex-col my-2 w-full">
             <div className="flex justify-between items-center w-full my-2">
                <span>Strength:</span>
-               <PasswordStrengthIndicator password="password" />
+               <PasswordStrengthIndicator password={password} />
             </div>
          </section>
-         <section className="mb-2 mt-4">
+         <section className="mb-2 mt-4" onClick={() => generatePassword(checkboxData, length)}>
             <Btn value="Generate Password" />
          </section>
       </main>
