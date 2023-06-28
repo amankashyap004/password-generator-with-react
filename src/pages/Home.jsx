@@ -1,8 +1,22 @@
 import React, { useState } from "react";
 import Btn from "../components/Btn";
+import Checkbox from "../components/Checkbox";
 
 const Home = () => {
    const [length, setLength] = useState(4);
+   const [checkboxData, setCheckboxData] = useState([
+      { title: "Include Uppercase Letters", state: false },
+      { title: "Include Lowercase Letters", state: false },
+      { title: "Include Numbers", state: false },
+      { title: "Include Symbols", state: false },
+   ]);
+
+   const handleCheckboxChange = (i) => {
+      const updatedCheckboxData = [...checkboxData];
+      updatedCheckboxData[i].state = !updatedCheckboxData[i].state;
+      setCheckboxData(updatedCheckboxData);
+   };
+
    return (
       <main className="flex justify-center items-center flex-col text-white text-xl font-extrabold py-6 px-12 rounded-lg bg-slate-700 w-1/2">
          <section className="flex justify-between items-center w-full my-2">
@@ -24,6 +38,18 @@ const Home = () => {
                   onChange={(e) => setLength(e.target.value)}
                />
             </div>
+         </section>
+         <section className="grid grid-cols-2 my-2 w-full">
+            {checkboxData.map((checkbox, index) => {
+               return (
+                  <Checkbox
+                     key={index}
+                     title={checkbox.title}
+                     onChange={() => handleCheckboxChange(index)}
+                     state={checkbox.state}
+                  />
+               );
+            })}
          </section>
       </main>
    );
