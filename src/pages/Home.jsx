@@ -19,7 +19,7 @@ const Home = () => {
    };
 
    return (
-      <main className="flex justify-center items-center flex-col text-white text-xl font-extrabold py-6 px-12 rounded-lg bg-slate-700 w-1/2">
+      <main className="flex justify-center items-center flex-col text-white text-xl font-extrabold py-6 px-12 rounded-lg bg-slate-700 w-[45%]">
          <section className="flex justify-between items-center w-full my-2">
             <h1>password</h1>
             <Btn value="copy" />
@@ -54,9 +54,12 @@ const Home = () => {
          </section>
          <section className="flex justify-between items-center flex-col my-2 w-full">
             <div className="flex justify-between items-center w-full my-2">
-               <span>Strength</span>
+               <span>Strength:</span>
                <PasswordStrengthIndicator password="password" />
             </div>
+         </section>
+         <section className="mb-2 mt-4">
+            <Btn value="Generate Password" />
          </section>
       </main>
    );
