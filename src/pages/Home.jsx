@@ -61,7 +61,10 @@ const Home = () => {
                <PasswordStrengthIndicator password={password} />
             </div>
          </section>
-         <section className="mb-2 mt-4" onClick={() => generatePassword(checkboxData, length)}>
+         <section className="relative my-2 w-full flex justify-center items-center">
+            {errorMessage && <div className="text-red-500 absolute">{errorMessage}</div>}
+         </section>
+         <section className="mb-2 mt-6" onClick={() => generatePassword(checkboxData, length)}>
             <Btn value="Generate Password" />
          </section>
       </main>
