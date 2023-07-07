@@ -39,7 +39,7 @@ npm run dev
 
 ## Live Demo
 
-A live demo of this project is available [here]().
+A live demo of this project is available [here](https://amankashyap004.github.io/password-generator-with-react/).
 
 ## Project Structure
 
